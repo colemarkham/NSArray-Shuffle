@@ -14,7 +14,7 @@
     NSUInteger arrayCount = [shuffledArray count];
     
     for (NSUInteger i = arrayCount - 1; i > 0; i--) {
-        NSUInteger n = arc4random_uniform(i + 1);
+        NSUInteger n = arc4random_uniform((uint32_t)i + 1);
         [shuffledArray exchangeObjectAtIndex:i withObjectAtIndex:n];
     }
     return [shuffledArray copy];
@@ -29,7 +29,7 @@
     
     NSUInteger loopCounter = 0;
     for (NSUInteger i = arrayCount - 1; i > 0 && loopCounter < itemLimit; i--) {
-        NSUInteger n = arc4random_uniform(i + 1);
+        NSUInteger n = arc4random_uniform((uint32_t)i + 1);
         [shuffledArray exchangeObjectAtIndex:i withObjectAtIndex:n];
         loopCounter++;
     }
